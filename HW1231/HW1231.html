@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Lab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/jquery.toast.css">
+
+    <style>
+        .modal-header, h4, .close {
+            background-color: plum;
+            color: white;
+            text-align: center;
+            font-size: 2em;
+        }
+
+        #loginButton{
+            color: black;
+            border-color:white;
+            background-color: rgb(241, 196, 196);
+        }
+        #cancelButton{
+            color: white;
+            border-color:white;
+            background-color: rgb(146, 142, 142);
+        }
+
+        .modal-footer {
+            background-color: #f9f9f9;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+        <form class="form-horizontal"
+            method="post" action="http://server2020.epizy.com/echo.php">
+    
+            <h2>新增會員表單</h2>
+            <!-- triggerLoginButton 觸發按鈕放這邊 -->
+            <button type="button" class="btn btn-default btn-lg"
+                    id="triggerLoginButton">
+                加入
+            </button>
+
+
+            <!-- 對話盒放這邊 -->
+            <div id="loginModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4>請登入</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="userNameTextBox">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                        帳號
+                                    </label>
+                                    <input type="text"
+                                        id="userNameTextBox"
+                                        name="userName"
+                                        class="form-control"
+                                        placeholder="輸入帳號或E-mail" />
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="userEmailTextBox">
+                                        <span class="glyphicon glyphicon-envelope"></span>
+                                        信箱
+                                    </label>
+                                    <input type="text" 
+                                        id="userEmailTextBox"
+                                        name="email"
+                                        email="userEmail"
+                                        class="form-control"
+                                        placeholder="輸入E-mail" />
+                                    
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="passwordTextBox">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                        密碼
+                                    </label>
+                                    <input type="password"
+                                        id="passwordTextBox"
+                                        name="password"
+                                        class="form-control"
+                                        placeholder="請在此輸入密碼">
+                                </div>
+
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"
+                                            id="rememberMeCheckBox"
+                                            name="rememberMe" value="yes"
+                                            checked />
+                                        記住我(下次自動登入)
+                                    </label>
+                                </div>
+
+                                <div class="pull-right">
+                                    <button type="submit"
+                                            name="loginOrCancel" value="login"
+                                            id="loginButton"
+                                            class="btn btn-success">
+                                        <span class="glyphicon glyphicon-off"></span> 登入
+                                    </button>
+                                    <button type="submit"
+                                            id="cancelButton"
+                                            name="loginOrCancel" value="cancel"
+                                            class="btn btn-default"
+                                            data-dismiss="modal">
+                                        <span class="glyphicon glyphicon-remove"></span> 取消
+                                    </button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <p>
+                                還不是會員嗎? <a href="#">加入我們</a> | 
+                                <a href="#">忘記密碼?</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.toast.js"></script>
+
+    <script>
+
+// init.
+$(function () {
+
+    // Lab 程式:
+
+    $("#triggerLoginButton").click(function () {
+        $("#loginModal").modal( { backdrop: "static" } );
+    });
+
+    $("#loginButton").click(function () {
+        // 資料檢查
+        // if (OK) {
+        $("#loginModal").modal("hide");
+    })
+
+    //$("#loginModal").on("hidden.bs.modal", function () {
+    //    alert("對話盒已關閉");
+    //})
+
+
+
+
+
+
+
+
+
+
+
+})  // end of init.
+
+    </script>
+
+</body>
+</html>
